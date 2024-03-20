@@ -3,7 +3,7 @@ if (!isset($_SESSION)) {
     session_start();
 }
 include "login.php";
-if (isset($_SESSION['id']) && isset($_SESSION['fornavn'])) {
+if (isset($_SESSION['id']) && isset($_SESSION['epost'])) {
     header("Location: ticket.php");
     exit();
 } else {
@@ -32,9 +32,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['fornavn'])) {
             <h1>Blackjack login</h1>
             <form class="loginForm" action="login.php" method="post">
                 <h2>Login:</h2>
-                <label>Bruker: </label>
-                <input class="input" type="text" name="fornavn" placeholder="fornavn"><br />
-                <label>Passord: </label>
+                <input class="input" type="text" name="epost" placeholder="Epost"><br />
                 <input class="input" type="password" name="passord" placeholder="Passord"><br />
                 <button type="submit">Login</button><br />
             </form>

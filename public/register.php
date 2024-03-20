@@ -19,14 +19,15 @@
     </header>
     <div class="bakgrunn">
         <form class="loginForm" action="register_process.php" method="post">
-            <label for="fornavn">Fornavn:</label><br>
+
+            <label for="epost">Registrering</label><br>
+            <input class="input" type="email" name="epost" placeholder="Epost"><br><br>
+
             <input class="input" type="text" name="fornavn" placeholder="Fornavn"><br><br>
 
-            <label for="passord">Passord:</label><br>
-            <input class="input" type="password" name="passord" placeholder="Passord"><br><br>
+            <input class="input" type="text" name="etternavn" placeholder="Etternavn"><br><br>
 
-            <label for="epost">Epost:</label><br>
-            <input class="input" type="email" name="epost" placeholder="Epost"><br><br>
+            <input class="input" type="password" name="passord" placeholder="Passord"><br><br>
 
             <input type="submit" value="Register">
 

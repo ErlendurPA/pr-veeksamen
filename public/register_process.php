@@ -8,11 +8,15 @@ include '../db_connect.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $fornavn = $_POST['fornavn'];
+    $etternavn = $_POST['etternavn'];
     $passord = password_hash($_POST['passord'], PASSWORD_DEFAULT);
     $epost = $_POST['epost'];
 
 
     if (empty($fornavn)) {
+        header("Location: register.php?error=Username is required!");
+        exit();
+    } else if (empty($etternavn)) {
         header("Location: register.php?error=Username is required!");
         exit();
     } else if (empty($passord)) {
@@ -23,7 +27,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         exit();
     }
 
-    $sql = "INSERT INTO bruker (fornavn, passord, epost) VALUES ('$fornavn', '$passord', '$epost')";
+    $sql = "INSERT INTO bruker (fornavn, etternavn, passord, epost) VALUES ('$fornavn', '$etternavn', '$passord', '$epost')";
 
     if ($conn->query($sql) === TRUE) {
         header("Location: index.php");
