@@ -2,12 +2,9 @@
 if (!isset($_SESSION)) {
     session_start();
 }
-include "login.php";
-if (isset($_SESSION['id']) && isset($_SESSION['fornavn'])) {
-    header("Location: ticket.php");
-    exit();
-} else {
+include "../db_connect.php";
 
+{
 ?>
     <!-- 
     //|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||

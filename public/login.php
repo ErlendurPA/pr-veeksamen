@@ -1,10 +1,12 @@
 <?php
-session_start();
-include "db_connect.php";
+if (!isset($_SESSION)) {
+    session_start();
+}
+include "../db_connect.php";
 //||||||||||||||||||||||||||||||||||||||||||||||||||||||
 //|||||| Henter og validerer data fra index.php ||||||||
 //||||||||||||||||||||||||||||||||||||||||||||||||||||||
-if (isset($_POST['username']) && isset($_POST['password'])) {
+if (isset($_POST['fornavn']) && isset($_POST['passord'])) {
 
     function validate($data)
     {
@@ -15,39 +17,39 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
     }
 
 
-    $username = validate($_POST['username']);
-    $password = validate($_POST['password']);
+    $fornavn = validate($_POST['fornavn']);
+    $passord = password_hash($_POST['passord'], PASSWORD_DEFAULT);
 
-    if (empty($username)) {
-        header("Location: index.php?error=username is required!");
+    if (empty($fornavn)) {
+        header("Location: index.php?error=fornavn is required!");
         exit();
-    } else if (empty($password)) {
-        header("Location: index.php?error=password is required!");
+    } else if (empty($passord)) {
+        header("Location: index.php?error=passord is required!");
         exit();
     }
 
-//||||||||||||||||||||||||||||||||||||||||||||||||||||
-//|||||| Sjekker login detaljer med databasen ||||||||
-//||||||||||||||||||||||||||||||||||||||||||||||||||||
+    //||||||||||||||||||||||||||||||||||||||||||||||||||||
+    //|||||| Sjekker login detaljer med databasen ||||||||
+    //||||||||||||||||||||||||||||||||||||||||||||||||||||
 
-    $sql = "SELECT * FROM user WHERE username='$username' AND password='$password'";
+    $sql = "SELECT * FROM bruker WHERE fornavn='$fornavn' AND passord='$passord'";
 
     $result = mysqli_query($conn, $sql);
 
     if (mysqli_num_rows($result) === 1) {
         $row = mysqli_fetch_assoc($result);
-        if ($row['username'] === $username && $row['password'] === $password) {
+        if ($row['fornavn'] === $fornavn && $row['passord'] === $passord) {
             echo "Innlogget";
-            $_SESSION['username'] = $row['username'];
+            $_SESSION['fornavn'] = $row['fornavn'];
             $_SESSION['id'] = $row['id'];
-            header("Location: game.php");
+            header("Location: ticket.php");
             exit();
         } else {
-            header("Location: index.php?error=Ugyldig username eller password!");
+            header("Location: index.php?error=Ugyldig fornavn eller passord!");
             exit();
         }
     } else {
-        header("Location: index.php?error=Jeg forstår ikke hva som skjer!");
+        header("Location: index.php?error=Jeg_forstår_ikke_hva_som_skjer!");
         exit();
     }
 }

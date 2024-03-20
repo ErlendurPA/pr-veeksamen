@@ -2,25 +2,28 @@
 
 // Process register form
 
-include 'db_connect.php';
+include '../db_connect.php';
 
 // Validate user input and insert into database
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $username = $_POST['username'];
-    $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
-    $email = $_POST['email'];
+    $fornavn = $_POST['fornavn'];
+    $passord = password_hash($_POST['passord'], PASSWORD_DEFAULT);
+    $epost = $_POST['epost'];
 
 
-    if (empty($username)) {
+    if (empty($fornavn)) {
         header("Location: register.php?error=Username is required!");
         exit();
-    } else if (empty($password)) {
+    } else if (empty($passord)) {
         header("Location: register.php?error=Password is required!");
+        exit();
+    } else if (empty($epost)) {
+        header("Location: register.php?error=Epost is required!");
         exit();
     }
 
-    $sql = "INSERT INTO user (username, password, email) VALUES ('$username', '$password', '$email')";
+    $sql = "INSERT INTO bruker (fornavn, passord, epost) VALUES ('$fornavn', '$passord', '$epost')";
 
     if ($conn->query($sql) === TRUE) {
         header("Location: index.php");
