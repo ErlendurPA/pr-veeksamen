@@ -19,6 +19,7 @@ if (isset($_POST['fornavn']) && isset($_POST['passord'])) {
 
     $fornavn = validate($_POST['fornavn']);
     $passord = password_hash($_POST['passord'], PASSWORD_DEFAULT);
+    echo $passord;
 
     if (empty($fornavn)) {
         header("Location: index.php?error=fornavn is required!");
@@ -36,7 +37,7 @@ if (isset($_POST['fornavn']) && isset($_POST['passord'])) {
 
     $result = mysqli_query($conn, $sql);
 
-    if (mysqli_num_rows($result) === 1) {
+    if (mysqli_num_rows($result) > 1) {
         $row = mysqli_fetch_assoc($result);
         if ($row['fornavn'] === $fornavn && $row['passord'] === $passord) {
             echo "Innlogget";
@@ -49,7 +50,7 @@ if (isset($_POST['fornavn']) && isset($_POST['passord'])) {
             exit();
         }
     } else {
-        header("Location: index.php?error=Jeg_forstår_ikke_hva_som_skjer!");
+        header("Location: index.php?error=tom_db?");
         exit();
     }
 }
