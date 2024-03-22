@@ -11,8 +11,7 @@ include "../db_connect.php";
 if (isset($_POST['epost']) && isset($_POST['passord'])) {
 
     $epost = $_POST['epost'];
-    $passord = password_hash($_POST['passord'], PASSWORD_DEFAULT);
-    echo $passord;
+    $passord = $_POST['passord'];
 
     if (empty($epost)) {
         header("Location: index.php?error=epost is required!");
@@ -26,13 +25,13 @@ if (isset($_POST['epost']) && isset($_POST['passord'])) {
     //|||||| Sjekker login detaljer med databasen ||||||||
     //||||||||||||||||||||||||||||||||||||||||||||||||||||
 
-    $sql = "SELECT * FROM bruker WHERE epost='$epost' AND passord='$passord'";
+    $sql = "SELECT * FROM bruker WHERE epost='$epost'";
 
     $result = mysqli_query($conn, $sql);
 
-    if (mysqli_num_rows($result) >= 1) {
+    if (mysqli_num_rows($result) === 1) {
         $row = mysqli_fetch_assoc($result);
-        if ($row['epost'] === $epost && $row['passord'] === $passord) {
+        if (password_verify($passord, $row['passord'])) {
             echo "Innlogget";
             $_SESSION['epost'] = $row['epost'];
             $_SESSION['id'] = $row['id'];
