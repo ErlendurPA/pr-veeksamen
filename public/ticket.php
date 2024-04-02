@@ -2,13 +2,8 @@
 if (!isset($_SESSION)) {
     session_start();
 }
-include "../db_connect.php"; {
+include "ticket_function.php"; {
 ?>
-    <!-- 
-    //|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
-    //|||||| Login form, selve funksjonene skjer i login.php ||||||||
-    //|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
-    -->
     <!DOCTYPE html>
     <html>
 
@@ -26,8 +21,14 @@ include "../db_connect.php"; {
         <div class="bakgrunn">
             <h1>PROBLEM
             </h1>
-            <form class="loginForm" action="login.php" method="post">
-
+            <form class="loginForm" action="ticket_function.php" method="post">
+                <select class="kategori" name="kategori">
+                    <option value="faktura">Faktura</option>
+                    <option value="vedlikehold">Vedlikehold</option>
+                    <option value="programvarelisens">Programvarelisens</option>
+                </select>
+                <input class="problem" type="text" maxlength="255" name="problem" placeholder="Beskriv problemet">
+                <button type="submit">Send</button>
             </form>
         </div>
         <footer></footer>
