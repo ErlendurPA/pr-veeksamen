@@ -69,16 +69,15 @@ if (isset($_SESSION['id'])) {
                         <h2>' . $emailString . '</h2>
                         <h2>' . $ticket['kategori'] . '</h2>
                         <p class="beskrivelse">' . $ticket['beskrivelse'] . '</p>
-                        <form action="tracking_function.php" method="post">
+                        <form action="tracking_function2.php" method="post">
                             <textarea name="answer" placeholder="Write your answer here"></textarea>
-                            <select class="kategori" name="kategori">
+                            <select class="kategori" name="status">
                                 <option value="1">aktiv</option>
                                 <option value="2">avsluttet</option>
                             </select>
                             <input type="hidden" name="ticket_id" value="' . $ticket['id'] . '">
                             <button type="submit">Submit</button>
                         </form>
-                        <p>' . $ticket['svar'] . '</p>
                     </div>';
         }
 
@@ -100,7 +99,7 @@ if (isset($_SESSION['id'])) {
                         <h2>' . $emailString . '</h2>
                         <h2>' . $ticket['kategori'] . '</h2>
                         <p class="beskrivelse">' . $ticket['beskrivelse'] . '</p>
-                        <p>' . $ticket['svar'] . '</p>
+                        <p>Svar: ' . $ticket['svar'] . '</p>
                     </div>';
         }
 
