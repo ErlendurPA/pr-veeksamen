@@ -5,40 +5,48 @@ SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
 
 -- -----------------------------------------------------
--- Schema mydb
+-- Schema fjellticket
 -- -----------------------------------------------------
 
 -- -----------------------------------------------------
--- Schema mydb
+-- Schema fjellticket
 -- -----------------------------------------------------
-CREATE SCHEMA IF NOT EXISTS `mydb` DEFAULT CHARACTER SET utf8 ;
-USE `mydb` ;
+CREATE SCHEMA IF NOT EXISTS `fjellticket` DEFAULT CHARACTER SET utf8 ;
+USE `fjellticket` ;
 
 -- -----------------------------------------------------
--- Table `mydb`.`bruker`
+-- Table `fjellticket`.`bruker`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`bruker` (
-  `id` INT NOT NULL,
-  `fornavn` VARCHAR(45) NULL,
-  `epost` VARCHAR(45) NULL,
-  `passord` VARCHAR(45) NULL,
+DROP TABLE IF EXISTS `fjellticket`.`bruker` ;
+
+CREATE TABLE IF NOT EXISTS `fjellticket`.`bruker` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `epost` VARCHAR(255) NULL,
+  `fornavn` VARCHAR(255) NULL,
+  `etternavn` VARCHAR(255) NULL,
+  `passord` VARCHAR(255) NULL,
+  `rolle` INT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`ticket`
+-- Table `fjellticket`.`ticket`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`ticket` (
-  `id` INT NOT NULL,
+DROP TABLE IF EXISTS `fjellticket`.`ticket` ;
+
+CREATE TABLE IF NOT EXISTS `fjellticket`.`ticket` (
+  `id` INT NOT NULL AUTO_INCREMENT,
   `bruker_id` INT NOT NULL,
   `kategori` VARCHAR(45) NULL,
   `beskrivelse` VARCHAR(255) NULL,
+  `svar` VARCHAR(255) NULL,
+  `status` INT NULL,
   PRIMARY KEY (`id`),
   INDEX `fk_ticket_bruker_idx` (`bruker_id` ASC) VISIBLE,
   CONSTRAINT `fk_ticket_bruker`
     FOREIGN KEY (`bruker_id`)
-    REFERENCES `mydb`.`bruker` (`id`)
+    REFERENCES `fjellticket`.`bruker` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
