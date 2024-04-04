@@ -1,8 +1,7 @@
 <?php
 if (!isset($_SESSION)) {
     session_start();
-}
-include "ticket_function.php"; {
+} {
 ?>
     <!DOCTYPE html>
     <html>
@@ -13,7 +12,9 @@ include "ticket_function.php"; {
 
     <body>
         <header style="padding: 1px;">
-            <h1>Login</h1>
+            <a href="tracking.php">
+                <h1>Tracking</h1>
+            </a>
             <a href="register.php">
                 <h1>Register</h1>
             </a>
@@ -31,7 +32,7 @@ include "ticket_function.php"; {
                 <button type="submit">Send</button>
             </form>
         </div>
-        <footer></footer>
+        <footer><a href="logout.php">Logg ut</a></footer>
     </body>
 
     </html>

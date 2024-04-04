@@ -9,3 +9,7 @@ INSERT INTO `fjellticket`.`ticket` (`id`, `bruker_id`, `kategori`, `beskrivelse`
 (1, 1, 'Technical', 'I am having trouble logging in.', 'We have reset your password. Please try again.', 1),
 (2, 2, 'Billing', 'I have been charged incorrectly.', 'We will investigate the issue and refund you if necessary.', 2),
 (3, 3, 'Technical', 'My account page is not loading properly.', 'We are aware of the issue and working on a fix.', 1);
+
+SELECT epost
+FROM bruker
+INNER JOIN bruker ON ticket.bruker_id = bruker.id;
