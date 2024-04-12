@@ -16,10 +16,10 @@ if (isset($_SESSION['id'])) {
     $sql = "INSERT INTO ticket (bruker_id, kategori, beskrivelse, status) VALUES ('$bruker_id', '$kategori', '$problem', 'aktiv')";
     $stmt = $conn->prepare($sql);
 
-    echo $sql;
 
     if ($stmt->execute()) {
         header("Location: tracking.php");
+        echo $sql;
         exit();
     } else {
         echo "Error: " . $sql . "<br>" . $conn->error;
