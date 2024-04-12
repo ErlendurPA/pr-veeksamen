@@ -29,7 +29,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['epost'])) {
             </a>
         </header>
         <div class="bakgrunn">
-            <h1>Blackjack login</h1>
+            <h1>Fjell login</h1>
             <form class="loginForm" action="login.php" method="post">
                 <h2>Login:</h2>
                 <input class="input" type="text" name="epost" placeholder="Epost"><br />
