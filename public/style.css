@@ -35,8 +35,8 @@ header {
   flex-direction: column;
   align-items: center;
   background-color: darkslategray;
-  height: 100vh;
   max-width: 100vw;
+  min-height: 100vh;
   margin: 0%;
   padding: 0%;
 }

@@ -13,7 +13,7 @@ if (isset($_SESSION['id'])) {
     $kategori = $_POST['kategori'];
     $problem = $_POST['problem'];
 
-    $sql = "INSERT INTO ticket (bruker_id, kategori, beskrivelse, status) VALUES ('$bruker_id', '$kategori', '$problem', 'aktiv')";
+    $sql = "INSERT INTO ticket (bruker_id, kategori, beskrivelse, status) VALUES ('$bruker_id', '$kategori', '$problem', '1')";
     $stmt = $conn->prepare($sql);
 
 

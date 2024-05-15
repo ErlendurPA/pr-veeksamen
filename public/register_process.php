@@ -27,7 +27,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         exit();
     }
 
-    $sql = "INSERT INTO bruker (fornavn, etternavn, passord, epost) VALUES ('$fornavn', '$etternavn', '$passord', '$epost')";
+    $sql = "INSERT INTO bruker (fornavn, etternavn, passord, epost, rolle) VALUES ('$fornavn', '$etternavn', '$passord', '$epost', '1')";
 
     if ($conn->query($sql) === TRUE) {
         header("Location: index.php");

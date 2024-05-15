@@ -28,7 +28,7 @@ if (!isset($_SESSION)) {
                     <option value="vedlikehold">Vedlikehold</option>
                     <option value="programvarelisens">Programvarelisens</option>
                 </select>
-                <input class="problem" type="text" maxlength="255" name="problem" placeholder="Beskriv problemet">
+                <input class="problem" type="text" maxlength="255" name="problem" placeholder="Beskriv problemet" autocomplete="off">
                 <button type="submit">Send</button>
             </form>
         </div>
