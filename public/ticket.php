@@ -12,13 +12,25 @@ if (!isset($_SESSION)) {
 
     <body>
         <header style="padding: 1px;">
-            <a href="tracking.php">
-                <h1>Tracking</h1>
-            </a>
-            <a href="register.php">
-                <h1>Register</h1>
-            </a>
-        </header>
+        <a href="faq.php">
+            <h2>FAQ</h2>
+        </a>
+        <a href="ticket.php">
+            <h2>Ticket</h2>
+        </a>
+        <a href="tracking.php">
+            <h2>Tracking</h2>
+        </a>
+
+        <h1>Bruker registrering</h1>
+
+        <a href="index.php">
+            <h2>Login</h2>
+        </a>
+        <a href="register.php">
+            <h2>Registrering</h2>
+        </a>
+    </header>
         <div class="bakgrunn">
             <h1>PROBLEM
             </h1>

@@ -7,9 +7,23 @@
 
 <body>
     <header style="padding: 1px;">
-        <h1>FAQ</h1>
+        <a href="faq.php">
+            <h2>FAQ</h2>
+        </a>
+        <a href="ticket.php">
+            <h2>Ticket</h2>
+        </a>
+        <a href="tracking.php">
+            <h2>Tracking</h2>
+        </a>
+
+        <h1>Bruker registrering</h1>
+
+        <a href="index.php">
+            <h2>Login</h2>
+        </a>
         <a href="register.php">
-            <h1>Register</h1>
+            <h2>Registrering</h2>
         </a>
     </header>
     <style>
@@ -54,7 +68,7 @@
             </tr>
             <!-- Legg til flere spørsmål og svar etter behov -->
         </table>
-        </div>
+    </div>
     <footer></footer>
 </body>
 

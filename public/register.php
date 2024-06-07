@@ -12,15 +12,24 @@
 </head>
 
 <body>
-    <header>
-
+    <header style="padding: 1px;">
         <a href="faq.php">
-            <h1>FAQ</h1>
+            <h2>FAQ</h2>
         </a>
-        <h2>User Registration</h2>
+        <a href="ticket.php">
+            <h2>Ticket</h2>
+        </a>
+        <a href="tracking.php">
+            <h2>Tracking</h2>
+        </a>
+
+        <h1>Bruker registrering</h1>
 
         <a href="index.php">
-            <h1>Login</h1>
+            <h2>Login</h2>
+        </a>
+        <a href="register.php">
+            <h2>Registrering</h2>
         </a>
     </header>
     <div class="bakgrunn">
