@@ -13,9 +13,15 @@
 
 <body>
     <header>
-        <a href="index.php"><img src="imgs/chip.png" alt="barevifter logo" width="75px" height="75px"></a>
+
+        <a href="faq.php">
+            <h1>FAQ</h1>
+        </a>
         <h2>User Registration</h2>
-        <h2></h2>
+
+        <a href="index.php">
+            <h1>Login</h1>
+        </a>
     </header>
     <div class="bakgrunn">
         <form class="loginForm" action="register_process.php" method="post">

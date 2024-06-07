@@ -54,7 +54,7 @@
             </tr>
             <!-- Legg til flere spørsmål og svar etter behov -->
         </table>
-    </div>
+        </div>
     <footer></footer>
 </body>
 
